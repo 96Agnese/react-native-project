@@ -13,6 +13,7 @@ const CardPokemon = ({ name, url }) => {
     getDetailsPokemon();
   }, []);
 
+  //prova
   return (
     <View>
       <View>
