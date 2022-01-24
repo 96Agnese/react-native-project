@@ -1,4 +1,4 @@
-import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
+import { FlatList, SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CardPokemon from "./CardPokemon";
@@ -18,14 +18,22 @@ const GridCardPokemon = () => {
   //result api name
   return (
     <SafeAreaView>
-      <ScrollView>
-        <View style={styles.alignCard}>
+      <FlatList
+        //il mio array con i dati
+        data={dataPokemon}
+        //props degli stili al posto di View
+        contentContainerStyle={styles.alignCard}
+        //renderitem è la map
+        renderItem={({ item }) => <CardPokemon name={item.name} url={item.url} key={item.name} />}
+        keyExtractor={({ item }) => item?.name}
+      />
+      {/* <View style={styles.alignCard}>
           {dataPokemon &&
             dataPokemon.map((item) => (
-              <CardPokemon name={item.name} url={item.url} key={item.name} />
+              
             ))}
-        </View>
-      </ScrollView>
+        </View> */}
+      {/* </FlatList> */}
     </SafeAreaView>
   );
 };
