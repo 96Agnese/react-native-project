@@ -10,8 +10,8 @@ const GridCardPokemon = () => {
 
   useEffect(() => {
     async function pokemon() {
-      const responce = await axios.get(pokemonUrl);
-      setDataPokemon(responce.data.results);
+      const response = await axios.get(pokemonUrl);
+      setDataPokemon(response.data.results);
     }
     pokemon();
   }, []);
