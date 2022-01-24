@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import TypesButtons from "./TypesButtons";
 
-const CardPokemon = ({ name, url }) => {
+const CardPokemon = ({ name, url, color }) => {
   const [details, setDetails] = useState();
 
   useEffect(() => {

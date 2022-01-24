@@ -1,7 +1,7 @@
 export default {
   primary: "blue",
-  secondary: "orange",
-  success: "green",
+  poison: "orange",
+  grass: "green",
   danger: "red",
   warning: "yellow",
   dark: "black",

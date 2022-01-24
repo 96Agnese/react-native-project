@@ -17,7 +17,7 @@ const GridCardPokemon = () => {
   }, []);
   //result api name
   return (
-    <SafeAreaView>
+    <View>
       <FlatList
         //il mio array con i dati
         data={dataPokemon}
@@ -27,14 +27,7 @@ const GridCardPokemon = () => {
         renderItem={({ item }) => <CardPokemon name={item.name} url={item.url} key={item.name} />}
         keyExtractor={({ item }) => item?.name}
       />
-      {/* <View style={styles.alignCard}>
-          {dataPokemon &&
-            dataPokemon.map((item) => (
-              
-            ))}
-        </View> */}
-      {/* </FlatList> */}
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -46,5 +39,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "space-around",
+    paddingBottom: 300,
   },
 });
