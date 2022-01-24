@@ -1,10 +1,11 @@
 export default {
-  primary: "blue",
+  flying: "blue",
   poison: "orange",
   grass: "green",
-  danger: "red",
-  warning: "yellow",
-  dark: "black",
+  fire: "red",
+  water: "violet",
+  bug: "brown",
+  normal: "grey",
   light: "white",
 };
 

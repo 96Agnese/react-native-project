@@ -1,5 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { Alert, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import Colors from "./assets/theme/Colors";
 import CustomButton from "./Components/CustomButton";
 import GridCardPokemon from "./Components/GridCardPokemon";
 

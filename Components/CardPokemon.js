@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import TypesButtons from "./TypesButtons";
 
-const CardPokemon = ({ name, url, color }) => {
+const CardPokemon = ({ name, url }) => {
   const [details, setDetails] = useState();
 
   useEffect(() => {
@@ -35,7 +35,7 @@ const CardPokemon = ({ name, url, color }) => {
 
       <Text>
         {details?.types.map((item) => {
-          return <TypesButtons name={item.type.name} />;
+          return <TypesButtons name={item.type.name} color={item.type.name} />;
         })}
       </Text>
 
