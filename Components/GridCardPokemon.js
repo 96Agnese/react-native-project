@@ -15,7 +15,7 @@ const GridCardPokemon = () => {
     }
     pokemon();
   }, []);
-
+  //result api name
   return (
     <SafeAreaView>
       <ScrollView>
