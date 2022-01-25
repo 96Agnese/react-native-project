@@ -32,7 +32,7 @@ const CustomText = ({ text, containerStyle, ...rest }) => {
   );
 };
 
-const CustomButton = ({ text, icon, iconPosition = "left" }) => {
+const CustomButton = ({ text, icon, iconPosition = "left", onPress }) => {
   return (
     // <TouchableOpacity style={{ flexDirection: "row" }}>
     //   <Text style={{ margin: 5, justifyContent: "space-between" }}>bac</Text>
@@ -44,9 +44,10 @@ const CustomButton = ({ text, icon, iconPosition = "left" }) => {
         ...styles.buttonContainer,
         flexDirection: iconPosition === "left" ? "row" : "row-reverse",
       }}
+      onPress={onPress}
     >
       <Ionicons style={styles.styleIcs} name={icon} color={Colors.light} />
-      <CustomText text={text} containerStyle={{}} style={styles.styleTextBtn} />
+      <CustomText text={text} style={styles.styleTextBtn} />
     </TouchableOpacity>
   );
 };

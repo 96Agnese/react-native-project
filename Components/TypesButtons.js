@@ -1,8 +1,10 @@
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import React from "react";
 import Colors from "../assets/theme/Colors";
 
-const TypesButtons = ({ name, color, containerBottom }) => {
+const TypesButtons = ({ name, color }) => {
+  // funzione per i colori diversi
+
   const getBgColorButton = () => {
     switch (color) {
       case "grass":
@@ -21,17 +23,20 @@ const TypesButtons = ({ name, color, containerBottom }) => {
         return Colors.normal;
     }
   };
+
   return (
     <View>
-      <Text
-        style={{
-          ...styles.textTypes,
-          backgroundColor: getBgColorButton(),
-          ...containerBottom,
-        }}
+      <View
+        style={{ backgroundColor: getBgColorButton(), borderRadius: 10, margin: 5, padding: 3 }}
       >
-        {name}
-      </Text>
+        <Text
+          style={{
+            ...styles.textTypes,
+          }}
+        >
+          {name}
+        </Text>
+      </View>
     </View>
   );
 };
@@ -45,10 +50,5 @@ const styles = StyleSheet.create({
     textTransform: "capitalize",
     color: "white",
     fontWeight: "bold",
-    padding: 5,
-    marginTop: 9,
-  },
-  containerBottom: {
-    borderRadius: 5,
   },
 });
