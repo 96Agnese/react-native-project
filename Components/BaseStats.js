@@ -5,7 +5,7 @@ const BaseStats = ({ stats }) => {
   return (
     <View style={{ marginTop: 20 }}>
       <Text style={styles.titlesDesciption}>Base Stats</Text>
-      <ScrollView horizontal>
+      <View horizontal>
         {/* <View style={styles.containerStats}> */}
         {stats &&
           stats.map((item) => {
@@ -17,7 +17,7 @@ const BaseStats = ({ stats }) => {
             );
           })}
         {/* </View> */}
-      </ScrollView>
+      </View>
     </View>
   );
 };
