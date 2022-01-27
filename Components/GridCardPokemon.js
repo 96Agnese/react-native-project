@@ -54,6 +54,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "space-around",
-    paddingBottom: 300,
+    paddingBottom: 100,
   },
 });

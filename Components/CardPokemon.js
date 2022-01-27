@@ -4,24 +4,25 @@ import axios from "axios";
 import TypesButtons from "./TypesButtons";
 import { useNavigation } from "@react-navigation/core";
 
-const CardPokemon = ({ name, url, onDelete }) => {
+const CardPokemon = ({ name, url, ondelete }) => {
   const navigation = useNavigation();
-  const [details, setDetails] = useState();
+
+  const [pokemonCard, setPokemonCard] = useState();
 
   useEffect(() => {
-    async function getDetailsPokemon() {
+    async function getPokemonCard() {
       const responce = await axios.get(url);
-      setDetails(responce.data);
+      setPokemonCard(responce.data);
     }
-    getDetailsPokemon();
+    getPokemonCard();
   }, []);
 
   //prova
   return (
     <TouchableOpacity onPress={() => navigation.navigate("PokemonDetails", { pokemon: name })}>
       <View>
-        {details && (
-          <Image source={{ uri: details.sprites.front_default }} style={styles.ImgContainer} />
+        {pokemonCard && (
+          <Image source={{ uri: pokemonCard.sprites.front_default }} style={styles.ImgContainer} />
         )}
       </View>
       <View>
@@ -31,17 +32,17 @@ const CardPokemon = ({ name, url, onDelete }) => {
       </View>
 
       <View>
-        <Text style={styles.textId}> {details?.id}</Text>
+        <Text style={styles.textId}> {pokemonCard?.id}</Text>
       </View>
 
       <View>
-        <Text style={styles.textAbility}>Ability: {details?.abilities[0].ability.name}</Text>
+        <Text style={styles.textAbility}>Ability: {pokemonCard?.abilities[0].ability.name}</Text>
       </View>
 
       {/* non accetta solo l'id come il {name} perchè dentro l'url c'è già il mio dato invece name era dentro un altro url */}
       <View>
         <Text>
-          {details?.types.map((item) => {
+          {pokemonCard?.types.map((item) => {
             return <TypesButtons name={item.type.name} color={item.type.name} />;
           })}
         </Text>
