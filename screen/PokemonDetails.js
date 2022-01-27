@@ -4,6 +4,7 @@ import CustomButton from "../Components/CustomButton";
 import axios from "axios";
 import { useRoute } from "@react-navigation/native";
 import TypesButtons from "../Components/TypesButtons";
+import BaseStats from "../Components/BaseStats";
 
 const PokemonDetails = ({ route, navigation }) => {
   const { pokemon: pokemonName } = route.params;
@@ -22,12 +23,13 @@ const PokemonDetails = ({ route, navigation }) => {
 
   // pokemon deriva da cardpokemon che è la mia chiave che poi passo qui
   return (
-    <View>
-      <View style={{ width: 90, margin: 5 }}>
+    // TEXT AND IMAGE POKEMON
+    <View style={{ paddingHorizontal: 20 }}>
+      <View style={{ width: 90, margin: 8 }}>
         <CustomButton onPress={() => navigation.navigate("AllPokemon")} text="Go back" />
       </View>
       <Text style={styles.textPokedexDetail}> {pokemonName}</Text>
-      <View style={{ left: 120 }}>
+      <View style={{ alignItems: "center" }}>
         {dataPokemon && (
           <Image
             source={{ uri: dataPokemon.sprites?.other["official-artwork"].front_default }}
@@ -35,13 +37,13 @@ const PokemonDetails = ({ route, navigation }) => {
               height: 150,
               width: 150,
               backgroundColor: "black",
-              margin: 10,
+              marginVertical: 10,
               borderRadius: 20,
             }}
           />
         )}
       </View>
-
+      {/* DETAILS POKEMON */}
       <View style={styles.containerDataPokemon}>
         <View style={{ ...styles.column }}>
           <Text style={styles.titlesDesciption}>Pokédex Data</Text>
@@ -91,7 +93,7 @@ const PokemonDetails = ({ route, navigation }) => {
             {/* style grey */}
             <Text style={styles.infoDetail}>EggGroup</Text>
             {/* style bold dx */}
-            <Text style={styles.dxDetail}>{dataPokemon.name}</Text>
+            <Text style={styles.dxDetail}> {dataPokemon.name}</Text>
           </View>
           <View style={{ ...styles.pokedexDataDetail }}>
             {/* style grey */}
@@ -107,6 +109,8 @@ const PokemonDetails = ({ route, navigation }) => {
           </View>
         </View>
       </View>
+
+      <BaseStats stats={dataPokemon.stats} />
     </View>
   );
 };
@@ -116,9 +120,9 @@ export default PokemonDetails;
 const styles = StyleSheet.create({
   containerDataPokemon: {
     flexDirection: "row",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
   },
-
+  // 2 title
   titlesDesciption: {
     fontWeight: "bold",
     fontSize: 20,
@@ -139,10 +143,12 @@ const styles = StyleSheet.create({
   infoDetail: {
     color: "grey",
     fontWeight: "bold",
-    margin: 5,
+    paddingTop: 10,
   },
   dxDetail: {
     fontWeight: "bold",
+    paddingTop: 7,
+    left: 8,
   },
 });
 
